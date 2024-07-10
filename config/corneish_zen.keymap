@@ -5,7 +5,9 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
 
 / {
     chosen {
@@ -73,7 +75,7 @@
 
             bindings = <
 &kp ESCAPE  &kp LS(NUMBER_1)  &kp LS(NUMBER_2)  &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp LS(NUMBER_5)    &kp LS(NUMBER_6)  &kp LS(NUMBER_7)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &none     &kp DELETE
-&trans      &none             &none             &none             &none             &kp PIPE            &kp MINUS         &kp CARET         &kp AT            &kp LBKT          &kp RBKT  &kp BSLH
+&bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &none             &kp PIPE            &kp MINUS         &kp CARET         &kp AT            &kp LBKT          &kp RBKT  &kp BSLH
 &trans      &none             &none             &none             &none             &none               &kp EQUAL         &kp TILDE         &kp GRAVE         &kp LBRC          &kp RBRC  &kp UNDER
                                                 &trans            &trans            &kp BSPC            &kp DEL           &trans            &trans
             >;
@@ -82,10 +84,10 @@
         layer_3 {
             display-name = "Fn";
             bindings = <
-&none  &none  &none  &none   &none   &none     &none   &none              &none            &none  &none                 &none
-&none  &none  &none  &none   &none   &none     &none   &kp K_SCROLL_DOWN  &kp K_SCROLL_UP  &none  &none                 &none
-&none  &none  &none  &none   &none   &none     &none   &none              &none            &none  &kp LS(LG(UP_ARROW))  &kp LG(DOWN)
-                     &trans  &trans  &trans    &trans  &trans             &trans
+&none  &none            &none            &none            &none            &none              &none   &none              &none            &none  &none                 &none
+&none  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI    &none   &kp K_SCROLL_DOWN  &kp K_SCROLL_UP  &none  &none                 &none
+&none  &none            &rgb_ug RGB_EFR  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD    &none   &none              &none            &none  &kp LS(LG(UP_ARROW))  &kp LG(DOWN)
+                                         &trans           &trans           &trans             &trans  &trans             &trans
             >;
         };
     };
